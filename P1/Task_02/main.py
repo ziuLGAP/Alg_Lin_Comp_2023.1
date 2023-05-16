@@ -27,11 +27,19 @@ if __name__ == "__main__":
     A = read_matrix()
     tipo = input("Selecione o método para a solução do sistema: \n" + "- 1: para Power Method\n" + "- 2: para Metódo de Jacobi\n")
     valida_entrada_tipo(tipo)
+    
+    det = input("Gostaria de calcular o determinate ?(1 para sim ou 2 para não): ")
 
+    valida_entrada_tipo(det)
     if tipo == "1":
         x, x0 = As.power_method(A)
+        if det ==  "1":
+            raise Exception("Este método não calcula determinante.")
     elif tipo == "2":
         x, x0 = As.jacobi(A)
+        if det == "1":
+            determinante = As.determinante(A)
+            print("\n", determinante, "\n")
     
     print("Autovalor(s): \n", x, "\n")
     print("Autovetor(s): \n", x0, "\n")
