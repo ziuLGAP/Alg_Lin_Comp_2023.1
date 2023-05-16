@@ -85,6 +85,16 @@ def jacobi(A, tol=(10**-10), max_iter=1000):
         autovalores = get_autovalores(A)
         return autovalores, x
 
+
+def determinante(A):
+    a, b = jacobi(A)
+    prod = 1
+    for i in range(len(b)):
+        prod *= x[i]
+    
+    return prod
+
+
 A = np.array([[1,0.2,0],[0.2,1,0.5],[0,0.5,1]])
 
 x, x0 = jacobi(A)
